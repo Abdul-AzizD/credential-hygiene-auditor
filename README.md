@@ -1,27 +1,13 @@
-Simple Password Checker
+# Privacy-Preserving Credential Auditor
 
-This simple python project is designed to ewnforce a certain minimum level of security when making a password. I have developed this personal project as a part of advancing my knowledge of cyber security. This Program performs input validation against common weak password criteria.
+A Python command-line utility that evaluates credential strength against NIST SP 800-63B guidelines and checks for real-world breach exposure using the HaveIBeenPwned API.
 
-Features and Security Criteria:
-The password mustabide by the following rules:
--The minimum length of the password must be 8 characters.
--They must contain at least one:
---Uppercase letter (A-Z)
---Lowercase letter (a-z)
---Digit (0-9)
+## Features
+**Zero-Knowledge API Queries:** Implements the HaveIBeenPwned $k$-Anonymity model via SHA-1 hashing to verify breaches without leaking full hashes or credentials across the wire.
+**Information Entropy Scoring:** Calculates Shannon entropy ($H = L \cdot \log_2(R)$) to measure mathematical brute-force search space rather than naive character counting.
+**Secure Input Handling:** Utilizes masked terminal inputs (`getpass`) to prevent credential leakage via shoulder surfing or shell history.
 
-How to use this program:
-1. Download the script or clone the repository.
-2. Run the script by navigating to the project directory in your terminal and execute the file:
-python password_checker.py
-3. The program will prompt you to enter a password for you to check.
-
-Prerequisites:
-You must have Python 3 to run this checker. 
-
-Future enhancements:
-Additions will include:
--A checker for special Characters.
--A scoring system instead of True and False.
--An Entropy calculation system to give better scores for randomness and strength.
--Add logic to check password against a list of common words and compromised passwords.
+## Installation & Usage
+```bash
+pip install -r requirements.txt
+python PasswordChecker.py
